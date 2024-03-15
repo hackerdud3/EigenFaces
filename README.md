@@ -69,9 +69,9 @@ Try testing out the accuracy with different inputs of K values.
 <img width="500" alt="Screenshot 2024-03-13 204431" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/f57d259e-7c37-4a20-92a1-a31a6a368c9f">
 
 ## Accuracy
-Total number of correct matches: 17.
-Total number of incorrect matches: 6.
-Accuracy : 73.9130.
+- Total number of correct matches: 17.
+- Total number of incorrect matches: 6.
+- Accuracy : 73.9130.
 
 The accuracy depends on various parameters including value of K, set of training images, and dimensions of the 
 images (Nx by Ny), which is resolution. I considered 32 x 32 images here and small training 
