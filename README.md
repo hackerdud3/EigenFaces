@@ -7,9 +7,9 @@ A face recognition system using algorithm called Eigenface and a benchmarking sy
 This system can detect faces by treating the face recognition problem as a 2-D recognition problem. 
 We project the set images into a face space known as eigenfaces. Eigenfaces is an algorithm that uses principal component analysis (PCA) to analyze face images and identify patterns (based on ears, eyes, mouth, nose) that represents a face. I also plotted cummulative distribution between the eigenvalues and eigenvectors.
 There are mainly 3 components in this system
-#### 1) Image I/O and Visualization 
-#### 2) PCA for training 
-#### 3) Recognition by Nearest Neighbor classification.
+- 1) Image I/O and Visualization
+- 2) PCA for training 
+- 3) Recognition by Nearest Neighbor classification.
 
 ## MATLAB Usage
 
@@ -69,9 +69,9 @@ Try testing out the accuracy with different inputs of K values.
 <img width="500" alt="Screenshot 2024-03-13 204431" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/f57d259e-7c37-4a20-92a1-a31a6a368c9f">
 
 ## Accuracy
-- Total number of correct matches: 17.
-- Total number of incorrect matches: 6.
-- Accuracy : 73.9130.
+- Total number of correct matches: 17
+- Total number of incorrect matches: 6
+- Accuracy : 73.9130
 
 The accuracy depends on various parameters including value of K, set of training images, and dimensions of the 
 images (Nx by Ny), which is resolution. I considered 32 x 32 images here and small training 
