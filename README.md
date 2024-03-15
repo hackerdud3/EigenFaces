@@ -15,9 +15,27 @@ There are mainly 3 components in this system
 
 I used MATLAB for implementing the face recognition model, training, and testing. MATLAB is a high-level programming language and environment for numerical computation, visualization, and programming. Learn more about MATLAB from the [official MATLAB website](https://www.mathworks.com/products/matlab.html).
 
+## Example Dataset
+I considered 32 X 32 8bit images (Nx by Ny) (.TIF files)
+There are 3 Folders
+- [FA](#Image dataset for Training)
+- [FB](#Image dataset for testing)
+- [ALL](#FA + FB)
+
 ## Installation
 
 1. Clone the repository:
    ```sh
-   git clone 
+   git clone https://github.com/hackerdud3/Face-Recognition-Eigenfaces.git
+
+2. Change the folder path for ALL, training dataset(FA), and testing dataset(FB).
+   ```sh
+   % Path to training set
+   path = "\ALL";
+   % Construct DB from this dataset
+   path = "\FA";
+    % Path to testing set
+   path = "\FB";
+   
+   
 
