@@ -18,9 +18,9 @@ I used MATLAB for implementing the face recognition model, training, and testing
 ## Example Dataset
 I considered 32 X 32 8bit images (Nx by Ny) (.TIF files)
 There are 3 Folders
-- [FA](#Image dataset for Training)
-- [FB](#Image dataset for testing)
-- [ALL](#FA + FB)
+- [FA](Image dataset for Training)
+- [FB](Image dataset for testing)
+- [ALL](FA + FB)
 
 ## Installation
 
