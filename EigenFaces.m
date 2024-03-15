@@ -1,0 +1,142 @@
+% Path to ALL folder, the folder contains all the images of
+% training data set and test data set
+path = "\ALL";
+
+img_files = dir(fullfile(path, '*.TIF'));
+
+% Initialize matrix
+len = length(img_files);
+N = 32 * 32; 
+matX = zeros(N, len);
+
+% Vectorize images
+for i = 1:len
+    image_all = imread(fullfile(path, img_files(i).name));
+    matX(:, i) = double(image_all(:));
+end
+
+%Compute Mean Image
+u = mean(matX, 2);
+
+%Covariance Matrix
+cov_X = matX - repmat(u, 1, len);
+cov_matx = (cov_X * cov_X') / (len - 1);
+
+%Solve Eigenvalue Problem
+[V, D] = eig(cov_matx);
+
+%Sort Eigenvectors
+[eigen_values, index] = sort(diag(D), 'descend');
+eigen_vec_sorted = V(:, index);
+
+%Plotting eigenvectors and eigenvalues
+figure;
+plot(cumsum(eigen_values) / sum(eigen_values), 'LineWidth', 2);
+title('Cumulative Distribution of Eigenvalues');
+xlabel('Number of Eigenvalues');
+ylabel('Cumulative Proportion');
+grid on;
+
+%top K eigenvectors
+K = 3;  
+top_k = eigen_vec_sorted(:, 1:K);
+
+%this is our face model
+model = {u, top_k};
+
+% Construct DB from training set of images which are in FA folder
+path_fa = "\FA";  
+training_files = dir(fullfile(path_fa, '*.TIF')); 
+
+%length of training set
+len_fa = length(training_files);
+training_set = zeros(size(top_k, 2), len_fa);
+
+image_files_fa = cell(1, len_fa);
+
+% Iterate through training set
+for i = 1:len_fa
+    img_fa = imread(fullfile(path_fa, training_files(i).name));
+    vec_face = double(img_fa(:));
+    %project face on to the model
+    training_set(:, i) = top_k' * (vec_face - u);
+    image_files_fa{i} = training_files(i).name;
+end
+
+%path to test images set, in the folder FB
+path_fb = "\FB";
+testing_files = dir(fullfile(path_fb, '*.TIF'));
+
+
+count_correct_classification = 0;
+incorrect_set = {};
+expected_set = {};
+predicted_set = {};
+
+len_fb = length(testing_files);
+
+% Iterate through test images
+for i = 1:len_fb
+    test_image_filename = testing_files(i).name;
+    
+    image_files_fb = fullfile(path_fb, test_image_filename);
+
+    test_image = imread(image_files_fb);
+    %vectorize test images
+    test_vector = double(test_image(:));
+
+    test_face = top_k' * (test_vector - u);
+
+    % Nearest neighbor search
+    min_dist = inf;
+    face_index = -1;
+
+    % Iterate through known faces
+    for j = 1:len_fa
+        % Between known face and test face we need to calculate Euclidean distance 
+        curr_dist = norm(training_set(:, j) - test_face);
+
+        % Update if minimum distance is found for any test image
+        if curr_dist < min_dist
+            min_dist = curr_dist;
+            face_index = j;
+        end
+    end
+
+    % Checking if any matches found
+    if face_index == -1
+        disp(['No matching face found for image: ', test_image_filename]);
+        incorrect_set = [incorrect_set, image_files_fb];
+    else
+        expected_class = test_image_filename(1:11);
+
+        % Extract predicted class
+        predicted_class = image_files_fa{face_index}(1:11);
+
+       
+        if strcmp(expected_class, predicted_class) == 1
+            count_correct_classification = count_correct_classification + 1;
+        else
+            incorrect_set = [incorrect_set, image_files_fb];
+            expected_set = [expected_set, strcat('FA/', expected_class, 'FA0.TIF')];
+            predicted_set = [predicted_set, strcat('FA/', image_files_fa{face_index})];
+        end
+
+        % Display results for this image
+        disp(['Matching found for the respective image: ', test_image_filename]);
+        disp(['For class: ', predicted_class]);
+
+        % display both test image and matched face
+        if face_index ~= -1
+            subplot(1, 2, 2);
+            matched_face_img = imread(fullfile(path_fa, image_files_fa{face_index}));
+            title('Matched Image');
+        end
+    end
+end
+
+% Displaying system's Accuracy
+disp(['Total number of correct matches: ', num2str(count_correct_classification)]);
+disp(['Total number of incorrect matches: ', num2str(len_fb - count_correct_classification)]);
+disp('Accuracy');
+disp((count_correct_classification / len_fb) * 100);
