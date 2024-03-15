@@ -37,7 +37,7 @@ There are 3 Folders
    % Path to testing set
    path = "\FB";
 
-3. Manually change the K value for selecting the top K eigenvector:
+3. Manually change the K value for selecting the top K eigenvectors:
    ```sh
    %top K eigenvectors 
    k = 10
@@ -48,17 +48,17 @@ Try testing out the accuracy with different inputs of K values.
    >>EigenFaces
 
 ## Snapshots
-#### Accurate matches
+### Accurate matches
 
-<img width="842" alt="Screenshot 2024-03-13 203120" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/cb95ba2a-fe91-4627-a73e-5d23af9f7d2f">
-<img width="838" alt="Screenshot 2024-03-13 202934" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/9a9a6e57-999d-4816-a60d-09f97ed1ca20">
-<img width="842" alt="Screenshot 2024-03-13 202917" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/3b835e55-8109-469c-96bc-daeb58b806df">
-<img width="820" alt="Screenshot 2024-03-13 202831" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/078a112e-959a-4e7d-abfb-3d413e249720">
-<img width="828" alt="Screenshot 2024-03-13 202814" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/049bb051-0b9a-4d3b-828c-5547ec84e64e">
-<img width="831" alt="Screenshot 2024-03-13 202750" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/178a6a36-c5ff-489a-817a-a75a504849b4">
-<img width="353" alt="Screenshot 2024-03-13 203440" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/a8029ac2-bcfa-4250-b75f-792862ea7aca">
+<img width="350" alt="Screenshot 2024-03-13 203120" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/cb95ba2a-fe91-4627-a73e-5d23af9f7d2f">
+<img width="350" alt="Screenshot 2024-03-13 202934" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/9a9a6e57-999d-4816-a60d-09f97ed1ca20">
+<img width="350" alt="Screenshot 2024-03-13 202917" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/3b835e55-8109-469c-96bc-daeb58b806df">
+<img width="350" alt="Screenshot 2024-03-13 202831" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/078a112e-959a-4e7d-abfb-3d413e249720">
+<img width="350" alt="Screenshot 2024-03-13 202814" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/049bb051-0b9a-4d3b-828c-5547ec84e64e">
+<img width="350" alt="Screenshot 2024-03-13 202750" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/178a6a36-c5ff-489a-817a-a75a504849b4">
 
-#### Inaccurate matches
+
+### Inaccurate matches
 
 <img width="365" alt="mismatch2" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/1aa29381-74d4-495d-b37b-6d3a7148a56a">
 <img width="359" alt="mismatch1" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/dbc5a2af-a371-4e1d-97ae-70a6199d2a70">
@@ -69,8 +69,8 @@ Try testing out the accuracy with different inputs of K values.
 <img width="959" alt="Screenshot 2024-03-13 204431" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/f57d259e-7c37-4a20-92a1-a31a6a368c9f">
 
 ## Accuracy
-Total number of correct matches: 17 
-Total number of incorrect matches: 6 
+Total number of correct matches: 17
+Total number of incorrect matches: 6
 Accuracy : 73.9130 
 
 The accuracy depends on various parameters including value of K, set of training images, and dimensions of the 
