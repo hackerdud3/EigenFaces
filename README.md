@@ -66,7 +66,7 @@ Try testing out the accuracy with different inputs of K values.
 
 ## Plot
 
-<img width="959" alt="Screenshot 2024-03-13 204431" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/f57d259e-7c37-4a20-92a1-a31a6a368c9f">
+<img width="500" alt="Screenshot 2024-03-13 204431" src="https://github.com/hackerdud3/Face-Recognition-Eigenfaces/assets/28582589/f57d259e-7c37-4a20-92a1-a31a6a368c9f">
 
 ## Accuracy
 Total number of correct matches: 17
